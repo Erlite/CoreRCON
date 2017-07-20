@@ -39,7 +39,7 @@ namespace CoreRCON.PacketFormats
 
 			int size = BitConverter.ToInt32(buffer, 0);
 
-			if (size < 10) throw new InvalidDataException("Packet received was invalid.");
+			if (size < 10) return new RCONPacket(id, type, "");
 
 			int id = BitConverter.ToInt32(buffer, 4);
 			PacketType type = (PacketType)BitConverter.ToInt32(buffer, 8);
